@@ -1,5 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">WindowGarden</string>
+    <string name="app_name">种乎</string>
+    <string name="action_search">搜索</string>
+    <string name="action_plus">功能</string>
+    <string name="action_activity">活动</string>
+    <string name="action_collection">我的收藏</string>
+    <string name="action_test">数据自测</string>
+    <string name="action_settings">设置</string>
+    <string name="action_feedback">联系我们</string>
+    <string name="plus_plaza">广场</string>
+    <string name="plus_add_friend">添加朋友</string>
+    <string name="plus_weather">天气信息</string>
+    <string name="plus_plant_info">种植周边</string>
+    <string name="plus_take_photo">拍照分享</string>
+    
+    <string name="account_hint">账号/邮箱</string>
+    <string name="password_hint">密码</string>
+    <string name="register">注册</string>
+    <string name="login">开始种植</string>
+    
+    <string name="data_name_1">Water Level : </string>
+    <string name="data_unit_1">mm</string>
+    <string name="data_name_2">Light Level  : </string>
+    <string name="data_unit_2">lx</string>
+    <string name="refresh">同步数据</string>
+    <string name="operator">管理植物</string>
+    <string name="back">返回</string>
+    <string name="plant_operator_title_text">参数设置</string>
+    <string name="send">提交数据</string>
 
 </resources>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+    <LinearLayout
+        android:id="@+id/waterData_layout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp" >
+        
+        <TextView 
+        	android:id="@+id/waterData_title"
+        	android:layout_width="0dp"
+        	android:layout_height="match_parent"
+       	 	android:layout_weight="6"
+       	 	android:gravity="center_vertical|left"
+        	android:text="@string/data_name_1"
+       		android:textSize="20sp"
+        	/>
+        
+        <TextView 
+            android:id="@+id/waterData"
+        	android:layout_width="0dp"
+        	android:layout_height="match_parent"
+       	 	android:layout_weight="3"
+       	 	android:gravity="center"
+       		android:textSize="24sp"
+       		android:textColor="@color/ForestGreen"
+            />
+        
+        <TextView 
+            android:id="@+id/waterData_unit"
+        	android:layout_width="0dp"
+        	android:layout_height="match_parent"
+       	 	android:layout_weight="2"
+       	 	android:gravity="center_vertical|right"
+        	android:text="@string/data_unit_1"
+       		android:textSize="20sp"
+            />
+    </LinearLayout>
+    
+    <LinearLayout
+        android:id="@+id/lightData_layout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/waterData_layout"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp" >
+        
+        <TextView 
+        	android:id="@+id/lightData_title"
+        	android:layout_width="0dp"
+        	android:layout_height="match_parent"
+       	 	android:layout_weight="6"
+       	 	android:gravity="center_vertical|left"
+        	android:text="@string/data_name_2"
+       		android:textSize="20sp"
+        	/>
+        
+        <TextView 
+            android:id="@+id/lightData"
+        	android:layout_width="0dp"
+        	android:layout_height="match_parent"
+       	 	android:layout_weight="3"
+       	 	android:gravity="center"
+       		android:textSize="24sp"
+       		android:textColor="@color/ForestGreen"
+            />
+        
+        <TextView 
+            android:id="@+id/lightData_unit"
+        	android:layout_width="0dp"
+        	android:layout_height="match_parent"
+       	 	android:layout_weight="2"
+       	 	android:gravity="center_vertical|right"
+        	android:text="@string/data_unit_2"
+       		android:textSize="20sp"
+            />
+	</LinearLayout>
+	
+    <Button 
+        android:id="@+id/refresh"
+        android:layout_below="@id/lightData_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"
+        android:background="@drawable/refresh_btn_selector"
+        android:text="@string/refresh"
+        android:textSize="18sp"
+        android:textColor="@android:color/white"
+        />
+    
+    <Button 
+        android:id="@+id/operator"
+        android:layout_below="@id/refresh"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"
+        android:background="@drawable/refresh_btn_selector"
+        android:text="@string/operator"
+        android:textSize="18sp"
+        android:textColor="@android:color/white"
+        />
+    
+    <TextView 
+        android:id="@+id/update_date"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="10sp"
+        android:layout_marginRight="10sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        />
+    
+</RelativeLayout>

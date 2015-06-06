@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+	<com.windowgarden.app.view.TitleLayout
+	    android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        ></com.windowgarden.app.view.TitleLayout>
+    
+	<LinearLayout
+        android:id="@+id/modify_waterData_layout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/title"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp" >
+        
+        <TextView 
+        	android:id="@+id/modify_waterData_title"
+        	android:layout_width="0dp"
+        	android:layout_height="match_parent"
+       	 	android:layout_weight="6"
+       	 	android:gravity="center_vertical|left"
+        	android:text="@string/data_name_1"
+       		android:textSize="20sp"
+        	/>
+        
+        <EditText
+            android:id="@+id/modify_waterData"
+        	android:layout_width="0dp"
+        	android:layout_height="match_parent"
+       	 	android:layout_weight="3"
+       	 	android:background="@drawable/modify_edit_bg_selector"
+			android:layout_marginTop="5dp"
+			android:layout_marginBottom="5dp"
+       	 	android:gravity="center"
+       		android:textSize="24sp"
+       		android:inputType="number"
+       		android:singleLine="true"
+            />
+        
+        <TextView 
+            android:id="@+id/modify_waterData_unit"
+        	android:layout_width="0dp"
+        	android:layout_height="match_parent"
+       	 	android:layout_weight="2"
+       	 	android:gravity="center_vertical|right"
+        	android:text="@string/data_unit_1"
+       		android:textSize="20sp"
+            />
+	</LinearLayout>
+	
+	
+	<LinearLayout
+        android:id="@+id/modify_lightData_layout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/modify_waterData_layout"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp" >
+        
+        <TextView 
+        	android:id="@+id/modify_lightData_title"
+        	android:layout_width="0dp"
+        	android:layout_height="match_parent"
+       	 	android:layout_weight="6"
+       	 	android:gravity="center_vertical|left"
+        	android:text="@string/data_name_2"
+       		android:textSize="20sp"
+        	/>
+        
+        <EditText
+            android:id="@+id/modify_lightData"
+        	android:layout_width="0dp"
+        	android:layout_height="match_parent"
+       	 	android:layout_weight="3"
+       	 	android:background="@drawable/modify_edit_bg_selector"
+       	 	android:layout_marginTop="5dp"
+			android:layout_marginBottom="5dp"
+       	 	android:gravity="center"
+       		android:textSize="24sp"
+       		android:inputType="number"
+       		android:singleLine="true"
+            />
+        
+        <TextView 
+            android:id="@+id/modify_lightData_unit"
+        	android:layout_width="0dp"
+        	android:layout_height="match_parent"
+       	 	android:layout_weight="2"
+       	 	android:gravity="center_vertical|right"
+        	android:text="@string/data_unit_2"
+       		android:textSize="20sp"
+            />
+	</LinearLayout>
+	
+	<Button
+    	android:id="@+id/send"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/modify_lightData_layout"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/send_btn"
+        android:text="@string/send"
+        android:textColor="@android:color/white" />
+	
+</RelativeLayout>

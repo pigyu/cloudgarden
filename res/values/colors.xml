@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background_tab_pressed">#6633B5E5</color>
+
+    <color name="devide_line">#CBCED2</color>
+    
+    <color name="LawnGreen">#7CFC00</color>	
+    <color name="ForestGreen">#228B22</color>
+    <color name="DarkGreen">#006400</color>
+</resources>

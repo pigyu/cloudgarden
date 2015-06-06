@@ -1,0 +1,38 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.windowgarden.app.activity.MainActivity" >
+
+    <item
+        android:id="@+id/action_search"
+        android:actionViewClass="android.widget.SearchView"
+        android:icon="@drawable/actionbar_search_icon"
+        android:showAsAction="ifRoom|collapseActionView"
+        android:title="@string/action_search"/>
+    <item
+        android:id="@+id/action_plus"
+        android:actionProviderClass="com.windowgarden.app.activity.PlusActionProvider"
+        android:icon="@drawable/actionbar_add_icon"
+        android:showAsAction="ifRoom"
+        android:title="@string/action_plus"/>
+    <item
+        android:id="@+id/action_activity"
+        android:icon="@drawable/activity_icon"
+        android:title="@string/action_activity"/>
+    <item
+        android:id="@+id/action_collection"
+        android:icon="@drawable/collect_icon"
+        android:title="@string/action_collection"/>
+    <item
+        android:id="@+id/action_test"
+        android:icon="@drawable/test_icon"
+        android:title="@string/action_test"/>
+    <item
+        android:id="@+id/action_settings"
+        android:icon="@drawable/setting_icon"
+        android:title="@string/action_settings"/>
+    <item
+        android:id="@+id/action_feedback"
+        android:icon="@drawable/feedback_icon"
+        android:title="@string/action_feedback"/>
+
+</menu>
