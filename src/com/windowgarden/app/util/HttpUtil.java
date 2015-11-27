@@ -1,12 +1,21 @@
 package com.windowgarden.app.util;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
@@ -14,8 +23,89 @@ import android.net.NetworkInfo;
 
 public class HttpUtil {
 
-	public static final String BASE_URL = "http://localhost/WindowGardenServer/";
+	//192.168.0.108 
+	//10.0.2.2
 	
+	public static final String BASE_URL = "http://192.168.43.160:8080/"
+			+ "cloudgarden/CloudGardenServlet?";
+	public static final String URL_GET_DATA = "http://192.168.43.160:8080/"
+			+ "cloudgarden/CloudGardenSecondServlet";
+	
+	public static void sendDataWithHttpClient(final String address, final 
+			HttpCallbackListener listener) {
+		new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				HttpClient httpClient = new DefaultHttpClient();
+				HttpGet httpGet = new HttpGet(address);
+				try {
+					HttpResponse httpResponse = httpClient.execute(httpGet);
+					listener.onFinish(String.valueOf(httpResponse.getStatusLine().getStatusCode()));
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					if(listener != null) {
+						listener.onError(e);					
+					}
+				}
+			}
+		}).start();
+	}
+	
+	public static void sendAnotherHttpRequest(final String address, final 
+			HttpCallbackListener listener) {
+		new Thread(new Runnable() {
+	
+			@Override
+			public void run() {
+				HttpURLConnection connection = null;
+				try {
+					
+					int code = 0;
+ 					
+					URL url = new URL(address);
+			        connection = (HttpURLConnection) url.openConnection();
+					connection.setConnectTimeout(8000);
+					connection.setReadTimeout(8000);
+					connection.setRequestMethod("GET");
+					connection.setDoInput(true);
+					connection.setDoOutput(true);
+					code = connection.getResponseCode();
+					LogUtil.d("HttpUtil", String.valueOf(code));
+					if(code == 200) {
+						InputStream inputStream = connection.getInputStream();
+						String jsonString = changeInputStream(inputStream);
+						listener.onFinish(jsonString);
+					}
+				} catch (IOException e) {
+					if(listener != null) {
+						listener.onError(e);
+					}
+				} finally {
+					if(connection != null) {
+						connection.disconnect();
+					}
+			    }
+			}
+		}).start();
+	}
+	
+	protected static String changeInputStream(InputStream inputStream) {
+		String jsonString = "";
+		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+		int length = 0;
+		byte[] buffer = new byte[1024];
+		try {
+			while((length = inputStream.read(buffer)) != -1) {
+				outputStream.write(buffer, 0, length);
+			}
+			jsonString = new String(outputStream.toByteArray());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return jsonString;
+	}
+
 	public static void sendHttpRequest(final String address, final
 			HttpCallbackListener listener) {
 		
@@ -136,7 +226,6 @@ public class HttpUtil {
 	*/
 	
 	public static boolean isNetworkAvailable() {
-		// TODO Auto-generated method stub
 		ConnectivityManager connectivityManager = (ConnectivityManager) 
 				MyApplication.getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
 		NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();

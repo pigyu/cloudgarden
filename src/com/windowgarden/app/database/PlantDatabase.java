@@ -47,13 +47,74 @@ public class PlantDatabase {
 		return plantDatabase;
 	}
 
-	public void savePlantInfo(PlantInfo plantInfo) {
-		// TODO Auto-generated method stub
-		plantInfo.save();
+	public void savePlantInfo(PlantInfo plantInfo) {			
+		//第一次 ， save.
+		//plantInfo.save();
+		//第二次，update.
+		plantInfo.update(plantInfo.getId());
 	}
 	
+	/*
+	private int loadNum() {
+		FileInputStream in = null;
+		BufferedReader reader = null;
+		String line = "0";
+		try {
+			in = MyApplication.getContext().openFileInput("data");
+			reader = new BufferedReader(new InputStreamReader(in));
+			line = reader.readLine();
+		} catch (FileNotFoundException e) {
+			//create the "data" file, 
+			//and return.
+			addNum(null);
+			return 0;
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			if(reader != null) {
+				try {
+					reader.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+			addNum(line);
+		}
+		return Integer.parseInt(line);
+	}
+	*/
+
+	/*
+	private void addNum(String num) {
+		FileOutputStream out = null;
+		BufferedWriter writer = null;
+		try {
+			out = MyApplication.getContext().openFileOutput("data", 
+					MyApplication.MODE_PRIVATE);
+			writer = new BufferedWriter(new OutputStreamWriter(out));
+	
+			if(num != null) {
+				writer.write(String.valueOf(Integer.parseInt(num) + 1));
+			} else {
+				writer.write("1");
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			if(writer != null) {
+				try {
+					writer.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	*/
+	
 	public void saveToSharedPrefs(String id) {
-		// TODO Auto-generated method stub
 		SharedPreferences.Editor editor = MyApplication.getContext().
 				getSharedPreferences("myPlantInfo" + id, 0).edit();
 		if(!TextUtils.isEmpty(id)) {
@@ -63,8 +124,11 @@ public class PlantDatabase {
 		editor.clear();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy年M月d日", Locale.CHINA);
 		editor.putLong("myId", myPlantInfo.getId());
+		System.out.println("" + myPlantInfo.getWaterLevel());
 		editor.putFloat("myWaterLevel", myPlantInfo.getWaterLevel());
 		editor.putFloat("myLightLevel", myPlantInfo.getLightLevel());
+		editor.putFloat("myExpectedWaterLevel", myPlantInfo.getExpectedWaterLevel());
+		editor.putFloat("myExpectedLightLevel", myPlantInfo.getExpectedLightLevel());
 		editor.putString("update_date", sdf.format(new Date()));
 		editor.putBoolean("is_saved", true);
 		editor.commit();

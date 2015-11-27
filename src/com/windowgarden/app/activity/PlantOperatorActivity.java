@@ -47,7 +47,47 @@ public class PlantOperatorActivity extends Activity implements OnClickListener{
 		case R.id.send:
 			modifiedWaterLevel = waterLevelEditText.getText().toString();
 			modifiedLightLevel = lightLevelEditText.getText().toString();
-			String url = HttpUtil.BASE_URL + "servlet/PlantServlet?" + "id=" + MainActivity.id;
+			
+			
+			//http://10.0.2.2:8080/cloudgarden/"
+			//+ "CloudGardenServlet?id=1&waterLevel=36&lightLevel=36
+			
+		    String url = HttpUtil.BASE_URL + "id=" + MainActivity.id + "&expectedWaterLevel=" 
+		    + modifiedWaterLevel + "&expectedLightLevel=" + modifiedLightLevel;
+			
+		    HttpUtil.sendDataWithHttpClient(url, new HttpCallbackListener() {
+				
+				@Override
+				public void onFinish(final String response) {
+					runOnUiThread(new Runnable() {
+						
+						@Override
+						public void run() {
+							if(Integer.parseInt(response) == 200) {
+								Toast.makeText(PlantOperatorActivity.this, "修改数据成功", 
+										Toast.LENGTH_SHORT).show();
+							} else {
+								Toast.makeText(PlantOperatorActivity.this, "修改数据失败", 
+										Toast.LENGTH_SHORT).show();
+							}
+						}
+					});
+				}
+				
+				@Override
+				public void onError(Exception e) {
+					runOnUiThread(new Runnable() {
+						
+						@Override
+						public void run() {
+							Toast.makeText(PlantOperatorActivity.this, "修改数据错误", 
+									Toast.LENGTH_SHORT).show();
+						}
+					});
+				}
+			});
+			
+			/*
 			HttpUtil.postDataWithHttpURLConnection(url, MainActivity.id, modifiedWaterLevel, 
 					modifiedLightLevel, new HttpCallbackListener() {
 						
@@ -77,16 +117,18 @@ public class PlantOperatorActivity extends Activity implements OnClickListener{
 								@Override
 								public void run() {
 									// TODO Auto-generated method stub
-									Toast.makeText(PlantOperatorActivity.this, "修改数据失败", 
+									Toast.makeText(PlantOperatorActivity.this, "修改数据错误", 
 											Toast.LENGTH_SHORT).show();
 								}
 							});
 						}
 					});
+				*/
+		    
 			break;
 		default:
 			break;
-		}
-	}
-		
+			
+		}		
+	 }	
 }

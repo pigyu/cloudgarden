@@ -1,5 +1,4 @@
 package com.windowgarden.app.view;
-
 import com.windowgarden.app.R;
 
 import android.view.View;

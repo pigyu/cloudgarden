@@ -5,6 +5,7 @@ import com.windowgarden.app.database.PlantDatabase;
 import com.windowgarden.app.util.DataParser;
 import com.windowgarden.app.util.HttpCallbackListener;
 import com.windowgarden.app.util.HttpUtil;
+import com.windowgarden.app.util.LogUtil;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -31,8 +32,6 @@ public class PlantFragment extends Fragment implements OnClickListener{
 	private String myUpdateDate;
 	
 	private PlantDatabase plantDatabase;
-	
-	private static final String address = "http://10.0.2.2/plant_info.json";
 	
 	/*
 	private Handler handler = new Handler() {
@@ -65,6 +64,7 @@ public class PlantFragment extends Fragment implements OnClickListener{
 		
 		plantDatabase = PlantDatabase.getInstance();
 		
+		//在这里
 		showPlantData();
 	
 		return view;
@@ -72,11 +72,10 @@ public class PlantFragment extends Fragment implements OnClickListener{
 	
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
 		switch (v.getId()) {
 		case R.id.refresh:
 			refreshButton.setText("同步中...");
-			queryFromServer(address);
+			queryFromServer(HttpUtil.URL_GET_DATA);
 			break;
 		case R.id.operator:
 			Intent intent = new Intent(getActivity(), 
@@ -107,7 +106,7 @@ public class PlantFragment extends Fragment implements OnClickListener{
 			lightLevelText.setText(String.valueOf(myLightLevel));
 			updateDateText.setText(myUpdateDate);
 		} else {
-			queryFromServer(address);
+			queryFromServer(HttpUtil.URL_GET_DATA);
 		}
 	}
 	
@@ -117,14 +116,17 @@ public class PlantFragment extends Fragment implements OnClickListener{
 	 * 再全部存储到数据库PlantInfo表中（之前已通过getInstance方法取得单例db）
 	 * 最后再传入特定id，query到特定行，将该用户数据存储到易访问的sharedPrefs文件中
 	 * 
-	 * @param address 所要访问的服务器的地址
+	 * @param address 所要访问的Tomcat服务器的地址
 	 */
 	private void queryFromServer(final String address) {
-		HttpUtil.sendHttpRequest(address, new HttpCallbackListener() {
+		HttpUtil.sendAnotherHttpRequest(address, new HttpCallbackListener() {
 
 			@Override
 			public void onFinish(String response) {
-				//parse JSON-data, send them to database(format-ly, not object-ly)
+				
+				LogUtil.d("PlantFragement", "success.......");
+				
+				//parse JSON-data, write them to local database(format-ly, not object-ly)
 				DataParser.parseJSONWithGSON(plantDatabase, response);
 				//save to SharedPrefs
 				plantDatabase.saveToSharedPrefs(MainActivity.id);
@@ -133,7 +135,6 @@ public class PlantFragment extends Fragment implements OnClickListener{
 					
 					@Override
 					public void run() {
-						// TODO Auto-generated method stub
 						showPlantData();
 						refreshButton.setText("同步数据");
 					}
@@ -142,13 +143,13 @@ public class PlantFragment extends Fragment implements OnClickListener{
 			
 			@Override
 			public void onError(Exception e) {
-				// TODO Auto-generated method stub
+				
+				LogUtil.d("PlantFragement", "fail.......");
 				
 				getActivity().runOnUiThread(new Runnable() {
 					
 					@Override
 					public void run() {
-						// TODO Auto-generated method stub
 						//DialogDisplayUtil.showAlertDialog("连接服务器失败");
 						waterLevelText.setText("unknown");
 						waterLevelText.setTextSize(12);

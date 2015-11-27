@@ -10,6 +10,10 @@ public class PlantInfo extends DataSupport{
 	
 	private float lightLevel;
 	
+	private float expectedWaterLevel;
+	
+	private float expectedLightLevel;
+	
 	public void setId(long id) {
 		this.id = id;
 	}
@@ -32,5 +36,21 @@ public class PlantInfo extends DataSupport{
 	
 	public float getLightLevel() {
 		return lightLevel;
+	}
+
+	public float getExpectedWaterLevel() {
+		return expectedWaterLevel;
+	}
+
+	public void setExpectedWaterLevel(float expectedWaterLevel) {
+		this.expectedWaterLevel = expectedWaterLevel;
+	}
+
+	public float getExpectedLightLevel() {
+		return expectedLightLevel;
+	}
+
+	public void setExpectedLightLevel(float expectedLightLevel) {
+		this.expectedLightLevel = expectedLightLevel;
 	}
 }
