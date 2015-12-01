@@ -1,21 +1,14 @@
 ﻿package com.windowgarden.app.activity;
 
-import java.util.List;
-
 import com.windowgarden.app.R;
-import com.windowgarden.app.util.MyApplication;
-import com.yydcdut.sdlv.Menu;
-import com.yydcdut.sdlv.MenuItem;
-import com.yydcdut.sdlv.SlideAndDragListView;
 
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 public class FriendsFragment extends Fragment {
 	
@@ -43,17 +36,25 @@ public class FriendsFragment extends Fragment {
 	 */
 
 	//SlideAndDragListView<?> listView;
-	
-	//数据
-	// private List mDataList;
 
+	
+	private String[] data = { "friend_1", "friend_2", "friend_3", "friend_4", "friend_5", 
+			"friend_6", "friend_7", "friend_8", "friend_9", "friend_10" };
+	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.fragment_friends, container, false);
 		
+		
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), 
+				android.R.layout.simple_list_item_1, data);
+		ListView listView = (ListView) view.findViewById(R.id.list_view);
+		listView.setAdapter(adapter);
+	
 		//listView = (SlideAndDragListView<?>) view.findViewById(R.id.listView);
 		//createMemuAndItems(listView);
+		
 		return view;
 	}
 
