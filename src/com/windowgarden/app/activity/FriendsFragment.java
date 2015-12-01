@@ -58,99 +58,11 @@ public class FriendsFragment extends Fragment {
 		return view;
 	}
 
+}	
 	
+
+
+
+
 	
-	/*
-		//设置侧滑监听器
-		listView.setOnSlideListener(new SlideAndDragListView.OnSlideListener() {
-            @Override
-            public void onSlideOpen(View view, View parentView, 
-            		int position, int direction) {
-            		Toast.makeText(MyApplication.getContext(), 
-            				"Slide", Toast.LENGTH_SHORT).show();
-            }
 
-            @Override
-            public void onSlideClose(View view, View parentView, 
-            		int position, int direction) {
-            		Toast.makeText(MyApplication.getContext(), 
-            				"Slide", Toast.LENGTH_SHORT).show();
-            }
-        });
-		//设置菜单Item点击监听器
-		listView.setOnMenuItemClickListener(new SlideAndDragListView.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(View v, int itemPosition, 
-            		int buttonPosition, int direction) {
-                switch (direction) {
-                    case MenuItem.DIRECTION_LEFT:
-                        switch (buttonPosition) {
-                            case 0://One
-                            	Toast.makeText(MyApplication.getContext(), 
-                            			"MenuItemClick/DIRECTION_LEFT", Toast.LENGTH_SHORT).show();
-                                return true;
-                        }
-                        break;
-                    case MenuItem.DIRECTION_RIGHT:
-                        switch (buttonPosition) {
-                            case 0://icon
-                            	Toast.makeText(MyApplication.getContext(), 
-                            			"MenuItemClick/DIRECTION_RIGHT", Toast.LENGTH_SHORT).show();
-                                return false;
-                        }
-                        break;
-                }
-				return false;
-            }
-        });
-		
-		//设置拖拽监听器
-		listView.setOnDragListener(new SlideAndDragListView.OnDragListener() {
-            @Override
-            public void onDragViewStart(int position) {
-            		
-            }
-
-            @Override
-            public void onDragViewMoving(int position) {
-
-            }
-
-            @Override
-            public void onDragViewDown(int position) {
-
-            }
-        }, mDataList);
-		//设置列表条目点击监听器
-		listView.setOnListItemClickListener(new SlideAndDragListView.OnListItemClickListener() {
-            @Override
-            public void onListItemClick(View v, int position) {
-            	Toast.makeText(MyApplication.getContext(), 
-            			"ListItemClick", Toast.LENGTH_SHORT).show();
-            }
-        });
-		
-		return view;
-	}
-	
-	private void createMemuAndItems(SlideAndDragListView<?> listView) {
-		//the third parameter is whether can slide over
-		Menu menu = new Menu((int) getResources().
-				getDimension(R.dimen.slv_item_height), new ColorDrawable(Color.WHITE), true);
-		menu.addItem(new MenuItem.Builder().setWidth(90)//set Width
-		                .setBackground(new ColorDrawable(Color.RED))// set background
-		                .setText("One")//set text string
-		                .setTextColor(Color.GRAY)//set text color
-		                .setTextSize(20)//set text color
-		                .build());
-		menu.addItem(new MenuItem.Builder().setWidth(120)
-		                .setBackground(new ColorDrawable(Color.BLACK))
-		                .setDirection(MenuItem.DIRECTION_RIGHT)//set direction (default DIRECTION_LEFT)
-		                .setIcon(getResources().getDrawable(R.drawable.garden_logo_2))// set icon
-		                .build());
-		//set in sdlv
-		listView.setMenu(menu);
-	}
-	*/
-	
-}
