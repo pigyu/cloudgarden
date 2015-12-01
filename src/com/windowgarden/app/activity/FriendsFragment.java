@@ -1,6 +1,9 @@
 ﻿package com.windowgarden.app.activity;
 
+import java.util.List;
+
 import com.windowgarden.app.R;
+import com.windowgarden.app.util.MyApplication;
 import com.yydcdut.sdlv.Menu;
 import com.yydcdut.sdlv.MenuItem;
 import com.yydcdut.sdlv.SlideAndDragListView;
@@ -12,6 +15,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 public class FriendsFragment extends Fragment {
 	
@@ -37,25 +41,98 @@ public class FriendsFragment extends Fragment {
 		return fl;
 	    }
 	 */
-	
-	
-	@SuppressWarnings("rawtypes")
-	SlideAndDragListView listView;
 
-	@SuppressWarnings("rawtypes")
+	//SlideAndDragListView<?> listView;
+	
+	//数据
+	// private List mDataList;
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.fragment_friends, container, false);
 		
-		listView = (SlideAndDragListView) view.findViewById(R.id.listView);
-		createMemuAndItems(listView);
-		
+		//listView = (SlideAndDragListView<?>) view.findViewById(R.id.listView);
+		//createMemuAndItems(listView);
 		return view;
 	}
 
-	@SuppressWarnings("rawtypes")
-	private void createMemuAndItems(SlideAndDragListView listView) {
+	
+	
+	/*
+		//设置侧滑监听器
+		listView.setOnSlideListener(new SlideAndDragListView.OnSlideListener() {
+            @Override
+            public void onSlideOpen(View view, View parentView, 
+            		int position, int direction) {
+            		Toast.makeText(MyApplication.getContext(), 
+            				"Slide", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onSlideClose(View view, View parentView, 
+            		int position, int direction) {
+            		Toast.makeText(MyApplication.getContext(), 
+            				"Slide", Toast.LENGTH_SHORT).show();
+            }
+        });
+		//设置菜单Item点击监听器
+		listView.setOnMenuItemClickListener(new SlideAndDragListView.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(View v, int itemPosition, 
+            		int buttonPosition, int direction) {
+                switch (direction) {
+                    case MenuItem.DIRECTION_LEFT:
+                        switch (buttonPosition) {
+                            case 0://One
+                            	Toast.makeText(MyApplication.getContext(), 
+                            			"MenuItemClick/DIRECTION_LEFT", Toast.LENGTH_SHORT).show();
+                                return true;
+                        }
+                        break;
+                    case MenuItem.DIRECTION_RIGHT:
+                        switch (buttonPosition) {
+                            case 0://icon
+                            	Toast.makeText(MyApplication.getContext(), 
+                            			"MenuItemClick/DIRECTION_RIGHT", Toast.LENGTH_SHORT).show();
+                                return false;
+                        }
+                        break;
+                }
+				return false;
+            }
+        });
+		
+		//设置拖拽监听器
+		listView.setOnDragListener(new SlideAndDragListView.OnDragListener() {
+            @Override
+            public void onDragViewStart(int position) {
+            		
+            }
+
+            @Override
+            public void onDragViewMoving(int position) {
+
+            }
+
+            @Override
+            public void onDragViewDown(int position) {
+
+            }
+        }, mDataList);
+		//设置列表条目点击监听器
+		listView.setOnListItemClickListener(new SlideAndDragListView.OnListItemClickListener() {
+            @Override
+            public void onListItemClick(View v, int position) {
+            	Toast.makeText(MyApplication.getContext(), 
+            			"ListItemClick", Toast.LENGTH_SHORT).show();
+            }
+        });
+		
+		return view;
+	}
+	
+	private void createMemuAndItems(SlideAndDragListView<?> listView) {
 		//the third parameter is whether can slide over
 		Menu menu = new Menu((int) getResources().
 				getDimension(R.dimen.slv_item_height), new ColorDrawable(Color.WHITE), true);
@@ -73,5 +150,6 @@ public class FriendsFragment extends Fragment {
 		//set in sdlv
 		listView.setMenu(menu);
 	}
+	*/
 	
 }
