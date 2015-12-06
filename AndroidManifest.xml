@@ -37,6 +37,14 @@
             android:name="com.windowgarden.app.activity.PlantOperatorActivity">        
         </activity>
         
+        <activity
+            android:name="com.windowgarden.app.activity.ChatActivity">        
+        </activity>
+        
+        <activity
+            android:name="com.windowgarden.app.activity.RegisterActivity" >
+        </activity>
+        
     </application>
 
 </manifest>

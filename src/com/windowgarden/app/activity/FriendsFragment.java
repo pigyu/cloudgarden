@@ -13,6 +13,7 @@ import com.windowgarden.app.R;
 import com.windowgarden.app.model.Friend;
 import com.windowgarden.app.util.FriendAdapter;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -22,7 +23,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
+
 import android.widget.AdapterView.OnItemClickListener;
 
 public class FriendsFragment extends Fragment {
@@ -77,8 +78,11 @@ public class FriendsFragment extends Fragment {
 					long id) {
 				//instead of using adapter, we use parent here to avoid error.
 				Friend friend = (Friend) parent.getAdapter().getItem(position); 
-				Toast.makeText(getActivity(), friend.getName(), 
-						Toast.LENGTH_SHORT).show();
+				
+				Intent intent = new Intent(getActivity(), ChatActivity.class);
+				intent.putExtra("friend_name", friend.getName());
+				intent.putExtra("friend_image_id", friend.getImageId());
+				startActivity(intent);
 			}
 		});
 		
@@ -142,7 +146,7 @@ public class FriendsFragment extends Fragment {
 		friendList.add(friend_1);
 		Friend friend_2 = new Friend("Amy", R.drawable.friend_girl);
 		friendList.add(friend_2);
-		Friend friend_3 = new Friend("Bush", R.drawable.friend_ladin);
+		Friend friend_3 = new Friend(" Bush", R.drawable.friend_ladin);
 		friendList.add(friend_3);
 		Friend friend_4 = new Friend("Alice", R.drawable.friend_girl_2);
 		friendList.add(friend_4);

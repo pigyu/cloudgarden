@@ -35,4 +35,11 @@
     <string name="loading">载入中...</string>
     <string name="updated">上次更新</string>
     
+    <string name="chat_hint">和好友畅聊</string>
+    <string name="send_chat_message">发送</string>
+    
+    <string name="register_help">帮助</string>
+    <string name="register_account_hint">请输入您的手机号或邮箱</string>
+    <string name="register_password_hint">请输入您想要设置的密码</string>
+    <string name="affirm_password_hint">请再次输入密码</string>
 </resources>

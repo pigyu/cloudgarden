@@ -16,12 +16,17 @@ import android.widget.Toast;
 public class PlantOperatorActivity extends Activity implements OnClickListener{
 
 	private float waterLevel;
+	
 	private float lightLevel;
+	
 	private String modifiedWaterLevel;
+	
 	private String modifiedLightLevel;
 	
 	private EditText waterLevelEditText;
+	
 	private EditText lightLevelEditText;
+	
 	private Button sendButton;
 	
 	@Override

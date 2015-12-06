@@ -15,6 +15,7 @@ import android.widget.Toast;
 public class LoginActivity extends Activity implements OnClickListener{
 
 	private Button login;
+	
 	private Button register;
 	
 	private EditText account;
@@ -45,7 +46,8 @@ public class LoginActivity extends Activity implements OnClickListener{
 			finish();
 			break;
 		case R.id.register:
-			Toast.makeText(LoginActivity.this, "зЂВс", Toast.LENGTH_SHORT).show();
+			Intent registerIntent = new Intent(LoginActivity.this, RegisterActivity.class);
+			startActivity(registerIntent);
 			break;	
 		default:
 			break;

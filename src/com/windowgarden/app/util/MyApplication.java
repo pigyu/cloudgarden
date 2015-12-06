@@ -9,7 +9,6 @@ public class MyApplication extends LitePalApplication {
 	
 	@Override
 	public void onCreate() {
-		// TODO Auto-generated method stub
 		context = getApplicationContext();
 	}
 	
