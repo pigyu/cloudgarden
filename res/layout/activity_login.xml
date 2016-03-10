@@ -11,7 +11,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
         android:contentDescription="@string/app_name"
-        android:src="@drawable/win_garden_logo" />
+        android:src="@drawable/my_head" />
 
     <RelativeLayout
         android:id="@+id/rl_user"

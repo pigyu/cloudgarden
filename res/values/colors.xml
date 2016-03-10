@@ -8,4 +8,6 @@
     <color name="ForestGreen">#228B22</color>
     <color name="DarkGreen">#006400</color>
     <color name="LightGreen">#C4FFC4</color>
+    
+    <color name="grey">#808080</color>
 </resources>

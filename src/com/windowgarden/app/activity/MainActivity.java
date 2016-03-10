@@ -11,6 +11,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+//import android.support.v4.view.MenuItemCompat;
 import android.support.v4.view.ViewPager;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
@@ -18,6 +19,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewConfiguration;
 import android.view.Window;
+//import android.widget.SearchView;
 import android.widget.Toast;
 
 public class MainActivity extends FragmentActivity {
@@ -142,6 +144,10 @@ public class MainActivity extends FragmentActivity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.main, menu);
+		
+		//MenuItem searchItem = menu.findItem(R.id.action_search);
+		//SearchView searchView = (SearchView) 
+		//MenuItemCompat.getActionView(searchItem);
 		return true;
 	}
 
@@ -185,6 +191,7 @@ public class MainActivity extends FragmentActivity {
 					m.setAccessible(true);
 					m.invoke(menu, true);
 				} catch (Exception e) {
+					e.printStackTrace();
 				}
 			}
 		}

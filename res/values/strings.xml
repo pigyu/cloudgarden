@@ -15,14 +15,16 @@
     <string name="plus_plant_info">种植周边</string>
     <string name="plus_take_photo">拍照分享</string>
     
+    <string name="default_text">初始化中...</string>
+    
     <string name="account_hint">账号/邮箱</string>
     <string name="password_hint">密码</string>
     <string name="register">注册</string>
     <string name="login">开始种植</string>
     
-    <string name="data_name_1">Water Level : </string>
+    <string name="data_name_1">定植篮水位: </string>
     <string name="data_unit_1">mm</string>
-    <string name="data_name_2">Light Level  : </string>
+    <string name="data_name_2"> 环境光强 : </string>
     <string name="data_unit_2">lx</string>
     <string name="refresh">同步数据</string>
     <string name="operator">管理植物</string>

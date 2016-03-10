@@ -16,7 +16,6 @@ import android.view.Window;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.ListView;
 
 public class ChatActivity extends Activity {
@@ -47,7 +46,7 @@ public class ChatActivity extends Activity {
 		messageListView = (ListView) findViewById(R.id.message_list_view);
 		messageListView.setAdapter(adapter);
 		
-		ImageView friendImage =  (ImageView) findViewById(R.id.friend_chat_image);
+		//ImageView friendImage =  (ImageView) findViewById(R.id.friend_chat_image);
 		//friendImage.setImageResource(friendImageId);
 		
 		send = (Button) findViewById(R.id.send_chat_message);

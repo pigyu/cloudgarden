@@ -24,6 +24,7 @@ public class FriendAdapter extends ArrayAdapter<Friend> {
 	}
 
 	class ViewHolder {
+		
 		ImageView friendImage;
 		
 		TextView friendName;

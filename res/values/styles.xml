@@ -1,20 +1,31 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!--
-        Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
-    -->
-    <style name="AppBaseTheme" parent="android:Theme.Light">
-        <!--
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-        -->
+    <style name="AppBaseTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+        <item name="android:actionBarStyle">@style/CloudGardenActionBar</item>
+        <item name="android:itemBackground">@drawable/actionbar_bg_selector</item>
+        <item name="android:actionBarItemBackground">@drawable/actionbar_bg_selector</item>
+        <item name="android:itemTextAppearance">@style/CloudGardenActionBarOverflow</item>
+        <item name="android:actionOverflowButtonStyle">@style/CloudGardenActionButtonOverflow</item>
     </style>
 
-    <!-- Application theme. -->
-    <style name="AppTheme" parent="AppBaseTheme">
-        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    <style name="CloudGardenActionBar" parent="@android:style/Widget.Holo.ActionBar">
+        <item name="android:background">#303537</item>
+        <item name="android:titleTextStyle">@style/CloudGardenActionBarTitleText</item>
     </style>
 
+    <style name="CloudGardenActionBarTitleText" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+        <item name="android:textColor">#f5f5f5</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+
+    <style name="CloudGardenActionBarOverflow" parent="@android:style/Widget.ActionButton.Overflow">
+        <item name="android:textColor">#f5f5f5</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="CloudGardenActionButtonOverflow" parent="android:style/Widget.Holo.ActionButton.Overflow">
+        <item name="android:textColor">#f5f5f5</item>
+        <item name="android:src">@drawable/actionbar_more_icon</item>
+    </style>
+    
 </resources>

@@ -152,10 +152,10 @@ public class PlantFragment extends Fragment implements OnClickListener{
 					public void run() {
 						//DialogDisplayUtil.showAlertDialog("连接服务器失败");
 						waterLevelText.setText("unknown");
-						waterLevelText.setTextSize(12);
+						waterLevelText.setTextSize(14);
 						lightLevelText.setText("unknown");
-						lightLevelText.setTextSize(12);
-						updateDateText.setText("1970年1月1日");
+						lightLevelText.setTextSize(14);
+						updateDateText.setText("2015年12月11日");
 						refreshButton.setText("同步数据");
 						Toast.makeText(getActivity(), "同步失败", 
 								Toast.LENGTH_SHORT).show();
